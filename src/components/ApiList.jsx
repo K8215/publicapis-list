@@ -15,7 +15,7 @@ export default function ApiList() {
 				const jsonRes = await res.json();
 				const entries = jsonRes.entries;
 
-				console.log(entries);
+				//console.log(entries);
 				setData(entries);
 			} catch (err) {
 				setError(err);
