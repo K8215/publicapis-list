@@ -12,6 +12,7 @@ A barebones app that fetches a list of all the APIs offered by [public-apis](htt
 
 - Fetches a list of free APIs from publicapis.org using `fetch`.
 - Displays the list of APIs in a user-friendly interface.
+- Option to exclude APIs that require CORS.
 
 ## Installation
 
@@ -27,6 +28,7 @@ npm install
 ```
 
 ## Usage
+
 ```bash
 # Run the development server
 npm run dev

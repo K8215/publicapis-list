@@ -89,6 +89,10 @@
 
 .api-list-controls {
 	margin: 0 0 2rem;
+
+	label {
+		cursor: pointer;
+	}
 }
 
 .api-list-item {
