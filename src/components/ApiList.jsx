@@ -7,6 +7,7 @@ export default function ApiList() {
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
 	const [hideCors, setHideCors] = useState(false);
+	const [total, setTotal] = useState(0);
 
 	useEffect(() => {
 		async function getData() {
@@ -15,8 +16,9 @@ export default function ApiList() {
 				const jsonRes = await res.json();
 				const entries = jsonRes.entries;
 
-				//console.log(entries);
+				console.log(entries);
 				setData(entries);
+				setTotal(entries.length);
 			} catch (err) {
 				setError(err);
 			} finally {
@@ -33,7 +35,13 @@ export default function ApiList() {
 			{error && <p className="api-list-error">ERROR: {error.message}</p>}
 			{data && (
 				<>
-					<Controls hideCors={hideCors} setHideCors={setHideCors} />
+					<Controls
+						hideCors={hideCors}
+						setHideCors={setHideCors}
+						setTotal={setTotal}
+					/>
+
+					<h2 className="api-list-total">Total: {total}</h2>
 
 					<ul className="api-list-wrapper">
 						{data.map((entry, index) => (
