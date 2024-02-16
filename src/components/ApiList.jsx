@@ -45,7 +45,9 @@ export default function ApiList() {
 								}
 								key={`list-item-${index}`}
 							>
-								{entry.API}
+								<a href={entry.Link} target="_blank">
+									{entry.API}
+								</a>
 							</li>
 						))}
 					</ul>
