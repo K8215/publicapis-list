@@ -1,10 +1,12 @@
 import React from "react";
 import { useState, useEffect } from "react";
+import Controls from "./Controls";
 
 export default function ApiList() {
 	const [data, setData] = useState(null);
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(null);
+	const [hideCors, setHideCors] = useState(false);
 
 	useEffect(() => {
 		async function getData() {
@@ -13,6 +15,7 @@ export default function ApiList() {
 				const jsonRes = await res.json();
 				const entries = jsonRes.entries;
 
+				console.log(entries);
 				setData(entries);
 			} catch (err) {
 				setError(err);
@@ -29,13 +32,24 @@ export default function ApiList() {
 			{loading && <p className="api-list-loader">Loading...</p>}
 			{error && <p className="api-list-error">ERROR: {error.message}</p>}
 			{data && (
-				<ul className="api-list-wrapper">
-					{data.map((entry, index) => (
-						<li className="api-list-item" key={`list-item-${index}`}>
-							{entry.API}
-						</li>
-					))}
-				</ul>
+				<>
+					<Controls hideCors={hideCors} setHideCors={setHideCors} />
+
+					<ul className="api-list-wrapper">
+						{data.map((entry, index) => (
+							<li
+								className={
+									hideCors === true && entry.Cors == "yes"
+										? `api-list-item hidden`
+										: `api-list-item`
+								}
+								key={`list-item-${index}`}
+							>
+								{entry.API}
+							</li>
+						))}
+					</ul>
+				</>
 			)}
 		</>
 	);

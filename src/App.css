@@ -82,3 +82,11 @@
 		opacity: 0;
 	}
 }
+
+.hidden {
+	display: none;
+}
+
+.api-list-controls {
+	margin: 0 0 2rem;
+}
