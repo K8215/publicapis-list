@@ -90,3 +90,16 @@
 .api-list-controls {
 	margin: 0 0 2rem;
 }
+
+.api-list-item {
+	margin: 0 0 1rem;
+
+	a {
+		font-size: 1.25rem;
+	}
+}
+
+.api-list-description {
+	margin: 0;
+	opacity: 0.7;
+}

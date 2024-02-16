@@ -48,6 +48,7 @@ export default function ApiList() {
 								<a href={entry.Link} target="_blank">
 									{entry.API}
 								</a>
+								<p class="api-list-description">{entry.Description}.</p>
 							</li>
 						))}
 					</ul>
